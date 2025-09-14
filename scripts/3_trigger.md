@@ -1,0 +1,1 @@
+Coloque aqui a explicação detalhada do trigger, conforme solicitado no enunciado
