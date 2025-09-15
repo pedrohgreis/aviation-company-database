@@ -52,9 +52,12 @@ CREATE TABLE funcionario(
 );
 
 
-
-
-
+CREATE TABLE Aviao (
+    id_aviao INT PRIMARY KEY AUTO_INCREMENT,
+    modelo VARCHAR(100),
+    fabricante VARCHAR(100),
+    data_aquisicao VARCHAR(100)
+);
 
 
 
