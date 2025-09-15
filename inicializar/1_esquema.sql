@@ -56,10 +56,14 @@ CREATE TABLE Aviao (
     id_aviao INT PRIMARY KEY AUTO_INCREMENT,
     modelo VARCHAR(100),
     fabricante VARCHAR(100),
-    data_aquisicao VARCHAR(100)
+    data_aquisicao DATE
 );
 
-
+CREATE TABLE Cidade (
+    id_cidade INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    pais VARCHAR(100)
+);
 
 
 
