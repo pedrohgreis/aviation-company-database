@@ -65,5 +65,16 @@ CREATE TABLE Cidade (
     pais VARCHAR(100)
 );
 
+CREATE TABLE Voo(
+    id_voo INT PRIMARY KEY AUTO_INCREMENT, 
+    distancia INT,      -- Em km, por exemplo
+    duracao TIME,       -- A duração do voo em horas, minutos e segundos ('HH:MM:SS').(ex: '03:15:00')
+    id_Aviao INT,
+    id_cidade_origem INT,
+    id_cidade_destino INT,
 
+    FOREIGN KEY (id_Aviao) REFERENCES Aviao(id_aviao),
+    FOREIGN KEY (id_cidade_origem) REFERENCES Cidade(id_cidade),
+    FOREIGN KEY (id_cidade_destino) REFERENCES Cidade(id_cidade)
+);
 
