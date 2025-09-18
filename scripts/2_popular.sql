@@ -1,8 +1,36 @@
 USE flyBase;
 
-INSERT INTO apagar (texto) VALUES ("Adapte conforme o seu projeto");
+-- Adicionando Avião (10 registros)
+INSERT INTO Aviao (modelo, fabricante, data_aquisicao) VALUES
+('Embraer E195-E2', 'Embraer', '2021-03-10'),
+('Boeing 787-9 Dreamliner', 'Boeing', '2019-11-05'),
+('Airbus A350-900', 'Airbus', '2022-01-20'),
+('Bombardier CRJ900', 'Bombardier', '2017-07-30'),
+('ATR 72-600', 'ATR', '2016-04-12'),
+('Boeing 777-300ER', 'Boeing', '2015-02-25'),
+('Airbus A330-300', 'Airbus', '2014-08-18'),
+('Embraer Phenom 300', 'Embraer', '2023-05-01'),
+('Cessna Citation Longitude', 'Cessna', '2022-10-11'),
+('Airbus A220-300', 'Airbus', '2020-12-07');
+
+--Adicionando Cidades (10 registros) Bem latinos <3
+INSERT INTO Cidade (nome, pais) VALUES
+-- Cidades no Brasil
+('Maceió', 'Brasil'),
+('Santa Catarina', 'Brasil'),
+('São Paulo', 'Brasil'),
+('Campo Grande', 'Brasil'),
+('Salvador', 'Brasil'),
+('Fernando de Noronha', 'Brasil'),
+
+-- Cidades Internacionais
+('Buenos Aires', 'Argentina'),
+('Cancún', 'México'),
+('San Pedro de Atacama', 'Chile'),
+('Machu Picchu', 'Peru');
 
 -- Populando tabela cargo (10 registros)
+
 INSERT INTO cargo (nomeCargo, salario) VALUES
 ('Gerente', 8000.00),
 ('Analista', 5000.00),
@@ -531,3 +559,22 @@ INSERT INTO funcionario (idPessoa, idCargo, dataIngres, dataDesligamento, ativid
 (99, 4, '1922-03-03', NULL, 'Ativo'),
 (100, 5, '1921-04-04', NULL, 'Ativo');
 
+
+
+-- 5 VOOS 
+
+INSERT INTO Voo (distancia, duracao, id_Aviao, id_cidade_origem, id_cidade_destino) VALUES
+-- 1. Voo internacional longo, de São Paulo para Cancún
+(6900, '08:40:00', 3, 3, 8),
+
+-- 2. Voo doméstico, de Campo Grande para Maceió
+(2200, '02:55:00', 10, 4, 1),
+
+-- 3. Voo internacional na América do Sul, de São Paulo para Buenos Aires
+(1700, '02:50:00', 6, 3, 7),
+
+-- 4. Voo turístico para uma ilha, de Salvador para Fernando de Noronha
+(1200, '02:30:00', 5, 5, 6),
+
+ --5. Embraer E195-E2 é id_Aviao 1 , São Paulo é id_cidade 3 e Salvador é id_cidade 5;
+(1450, '02:10:00', 1, 3, 5); 
