@@ -65,6 +65,12 @@ CREATE TABLE Cidade (
     pais VARCHAR(100)
 );
 
+CREATE TABLE Status_voo (
+    id_status INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(30) NOT NULL UNIQUE,
+    descricao VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE Voo(
     id_voo INT PRIMARY KEY AUTO_INCREMENT, 
     distancia INT,      -- Em km, por exemplo
@@ -72,9 +78,36 @@ CREATE TABLE Voo(
     id_Aviao INT,
     id_cidade_origem INT,
     id_cidade_destino INT,
+    id_status_voo INT,
 
     FOREIGN KEY (id_Aviao) REFERENCES Aviao(id_aviao),
     FOREIGN KEY (id_cidade_origem) REFERENCES Cidade(id_cidade),
-    FOREIGN KEY (id_cidade_destino) REFERENCES Cidade(id_cidade)
+    FOREIGN KEY (id_cidade_destino) REFERENCES Cidade(id_cidade),
+    FOREIGN KEY (id_status_voo) REFERENCES Status_voo(id_status)
 );
+
+
+CREATE TABLE Reserva(
+    idVoo INT,
+    id_cliente INT,
+    PRIMARY KEY (idVoo, id_cliente),
+    poltrona VARCHAR(8),
+    numReserva VARCHAR(20),
+    dataReserva DATE,
+
+    FOREIGN KEY (idVoo) REFERENCES Voo(id_voo),
+    FOREIGN KEY (id_cliente) REFERENCES cliente(idPessoa)
+);
+
+
+CREATE TABLE Funcionarios_voo(
+    idVoo INT,
+    id_funcionario INT,
+    PRIMARY KEY (idVoo, id_funcionario),
+
+    FOREIGN KEY (idVoo) REFERENCES Voo(id_voo),
+    FOREIGN KEY (id_funcionario) REFERENCES funcionario(idPessoa)
+);
+
+
 
