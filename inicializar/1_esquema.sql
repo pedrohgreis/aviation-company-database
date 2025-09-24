@@ -1,7 +1,8 @@
+DROP DATABASE IF EXISTS flyBase;
 CREATE DATABASE flyBase;
 USE flyBase;
 
---TABELAS QUE NÃO DEPENDEM DE OUTRAS TABELAS
+
 CREATE TABLE pessoa(
     id INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
@@ -79,7 +80,7 @@ CREATE TABLE EscalaTrabalho(
     id INT AUTO_INCREMENT PRIMARY KEY,
     idFuncionario INT,
     dataTrabalho INT,
-    horasTrabalho DECIMAL(1,10),
+    horasTrabalho DECIMAL(10,2),
     escalado BOOLEAN DEFAULT 1,
 
     FOREIGN KEY (idFuncionario) REFERENCES funcionario(idPessoa)

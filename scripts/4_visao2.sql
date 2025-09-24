@@ -3,9 +3,9 @@ USE flyBase
 CREATE VIEW voosComAtraso
 AS SELECT 
     v.id_voo,
-    s.nome,
+    s.nome AS status_nome,
     s.descricao,
-    c.nome,
+    c.nome AS cidade_nome,
     c.pais
 
 FROM Voo v 
