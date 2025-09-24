@@ -1,18 +1,19 @@
 USE flyBase;
+
+DROP TRIGGER IF EXISTS tg_LogDeStatusDoVoo;
+
 DELIMITER //
 
-CREATE TRIGGER tg_StatusDoVoo
+CREATE TRIGGER tg_LogDeStatusDoVoo
 AFTER UPDATE ON Voo
 FOR EACH ROW
 BEGIN
 
-    -- se o valor do status realmente mudou.
+    DECLARE nome_status_antigo VARCHAR(30);
+    DECLARE nome_status_novo VARCHAR(30);
+
     IF OLD.id_status_voo <> NEW.id_status_voo THEN
     
-        -- Variáveis para armazenar os nomes dos status (textos)
-        DECLARE nome_status_antigo VARCHAR(30);
-        DECLARE nome_status_novo VARCHAR(30);
-
         -- Busca o nome do status antigo usando o ID antigo (OLD)
         SELECT nome INTO nome_status_antigo FROM Status_voo WHERE id_status = OLD.id_status_voo;
         
