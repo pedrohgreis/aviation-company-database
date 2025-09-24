@@ -3,17 +3,17 @@ USE flyBase;
 -- =====================
 -- AVIÕES (10 registros)
 -- =====================
-INSERT INTO Aviao (modelo, fabricante, data_aquisicao) VALUES
-('Embraer E195-E2', 'Embraer', '2021-03-10'),
-('Boeing 787-9 Dreamliner', 'Boeing', '2019-11-05'),
-('Bombardier CRJ900', 'Bombardier', '2017-07-30'),
-('ATR 72-600', 'ATR', '2016-04-12'),
-('Airbus A330-300', 'Airbus', '2014-08-18'),
-('Embraer Phenom 300', 'Embraer', '2023-05-01'),
-('Airbus A220-300', 'Airbus', '2020-12-07'),
-('Boeing 737 MAX 8', 'Boeing', '2018-09-25'),
-('Airbus A350-900', 'Airbus', '2022-01-15'),
-('Cessna Citation X', 'Cessna', '2015-11-03');
+INSERT INTO Aviao (modelo, fabricante, data_aquisicao, capacidade) VALUES
+('Embraer E195-E2', 'Embraer', '2021-03-10', 132),
+('Boeing 787-9 Dreamliner', 'Boeing', '2019-11-05', 290),
+('Bombardier CRJ900', 'Bombardier', '2017-07-30', 76),
+('ATR 72-600', 'ATR', '2016-04-12', 70),
+('Airbus A330-300', 'Airbus', '2014-08-18', 300),
+('Embraer Phenom 300', 'Embraer', '2023-05-01', 8),
+('Airbus A220-300', 'Airbus', '2020-12-07', 130),
+('Boeing 737 MAX 8', 'Boeing', '2018-09-25', 180),
+('Airbus A350-900', 'Airbus', '2022-01-15', 350),
+('Cessna Citation X', 'Cessna', '2015-11-03', 12);
 
 -- =====================
 -- CIDADES (10 registros)
@@ -48,17 +48,17 @@ INSERT INTO cargo (nomeCargo, salario) VALUES
 -- =====================
 -- PESSOAS (10 registros iniciais)
 -- =====================
-INSERT INTO pessoa (primeiro_nome, sobrenome, DataNasc) VALUES
-('João', 'Silva', '1985-03-10'),
-('Maria', 'Oliveira', '1990-07-22'),
-('Carlos', 'Santos', '1978-11-15'),
-('Ana', 'Costa', '1992-01-05'),
-('Lucas', 'Pereira', '1988-09-30'),
-('Julia', 'Almeida', '1995-12-12'),
-('Pedro', 'Souza', '1983-06-18'),
-('Fernanda', 'Lima', '1991-04-25'),
-('Rafael', 'Barbosa', '1987-08-14'),
-('Patricia', 'Mendes', '1993-10-02');
+INSERT INTO pessoa (primeiro_nome, sobrenome, DataNasc, genero) VALUES
+('João', 'Silva', '1985-03-10', 'M'),
+('Maria', 'Oliveira', '1990-07-22', 'F'),
+('Carlos', 'Santos', '1978-11-15', 'M'),
+('Ana', 'Costa', '1992-01-05', 'F'),
+('Lucas', 'Pereira', '1988-09-30', 'M'),
+('Julia', 'Almeida', '1995-12-12', 'F'),
+('Pedro', 'Souza', '1983-06-18', 'M'),
+('Fernanda', 'Lima', '1991-04-25', 'F'),
+('Rafael', 'Barbosa', '1987-08-14', 'M'),
+('Patricia', 'Mendes', '1993-10-02', 'F');
 
 -- =====================
 -- CLIENTES (10 registros relacionados às pessoas acima)

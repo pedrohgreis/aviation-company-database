@@ -7,7 +7,8 @@ CREATE TABLE pessoa(
     id INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
     sobrenome VARCHAR(100),
-    DataNasc DATE
+    DataNasc DATE,
+    genero CHAR(1)
 );
 
 CREATE TABLE cargo(
@@ -20,7 +21,8 @@ CREATE TABLE Aviao (
     id_aviao INT PRIMARY KEY AUTO_INCREMENT,
     modelo VARCHAR(100),
     fabricante VARCHAR(100),
-    data_aquisicao DATE
+    data_aquisicao DATE,
+    capacidade INT
 );
 
 CREATE TABLE Cidade (
