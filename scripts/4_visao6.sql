@@ -43,3 +43,11 @@ FROM
 
 ORDER BY
     p.id, r.dataReserva DESC;
+
+SELECT * FROM historicoPassageiro;
+
+SELECT *
+FROM historicoPassageiro
+WHERE id_passageiro = 1;
+
+SELECT COUNT(*) AS total_de_reservas FROM Reserva
