@@ -1,6 +1,7 @@
 CREATE DATABASE flyBase;
 USE flyBase;
 
+--TABELAS QUE NÃO DEPENDEM DE OUTRAS TABELAS
 CREATE TABLE pessoa(
     id INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
@@ -8,11 +9,49 @@ CREATE TABLE pessoa(
     DataNasc DATE
 );
 
+CREATE TABLE cargo(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomeCargo VARCHAR(50) NOT NULL,
+    salario DECIMAL(10,2)
+);
+
+CREATE TABLE Aviao (
+    id_aviao INT PRIMARY KEY AUTO_INCREMENT,
+    modelo VARCHAR(100),
+    fabricante VARCHAR(100),
+    data_aquisicao DATE
+);
+
+CREATE TABLE Cidade (
+    id_cidade INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    pais VARCHAR(100)
+);
+
+CREATE TABLE Status_voo (
+    id_status INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(30) NOT NULL UNIQUE,
+    descricao VARCHAR(255) NOT NULL
+);
+
+
+-- TABELAS QUE DEPENDEM DE OUTRAS TABELAS (FOREIGN KEY)
 CREATE TABLE cliente(
     idPessoa INT PRIMARY KEY, 
     email VARCHAR(100) NOT NULL UNIQUE,
     plano ENUM('BASICO', 'PREMIUM', 'VIP') NOT NULL DEFAULT 'BASICO',
 
+    FOREIGN KEY (idPessoa) REFERENCES pessoa(id)
+);
+
+CREATE TABLE funcionario(
+    idPessoa INT PRIMARY KEY,
+    idCargo INT,
+    dataIngres DATE NOT NULL,
+    dataDesligamento DATE,
+    atividade VARCHAR(15),
+
+    FOREIGN KEY (idCargo) REFERENCES cargo(id),
     FOREIGN KEY (idPessoa) REFERENCES pessoa(id)
 );
 
@@ -34,24 +73,7 @@ CREATE TABLE passaporte(
     FOREIGN KEY (idCliente) REFERENCES cliente(idPessoa)
 );
 
-CREATE TABLE cargo(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nomeCargo VARCHAR(50) NOT NULL,
-    salario DECIMAL(10,2)
-);
 
-
-
-CREATE TABLE funcionario(
-    idPessoa INT PRIMARY KEY,
-    idCargo INT,
-    dataIngres DATE NOT NULL,
-    dataDesligamento DATE,
-    atividade VARCHAR(15),
-
-    FOREIGN KEY (idCargo) REFERENCES cargo(id),
-    FOREIGN KEY (idPessoa) REFERENCES pessoa(id)
-);
 
 CREATE TABLE EscalaTrabalho(
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -64,27 +86,7 @@ CREATE TABLE EscalaTrabalho(
 );
 
 
-CREATE TABLE Aviao (
-    id_aviao INT PRIMARY KEY AUTO_INCREMENT,
-    modelo VARCHAR(100),
-    fabricante VARCHAR(100),
-    data_aquisicao DATE
-);
-
-CREATE TABLE Cidade (
-    id_cidade INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100),
-    pais VARCHAR(100)
-);
-
-
 -- !toDo: Implementar trigger no status (histórico de aviões que já decolaram)
-
-CREATE TABLE Status_voo (
-    id_status INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(30) NOT NULL UNIQUE,
-    descricao VARCHAR(255) NOT NULL
-);
 
 CREATE TABLE Voo(
     id_voo INT PRIMARY KEY AUTO_INCREMENT, 
@@ -124,8 +126,6 @@ CREATE TABLE Funcionarios_voo(
     FOREIGN KEY (idVoo) REFERENCES Voo(id_voo),
     FOREIGN KEY (id_funcionario) REFERENCES funcionario(idPessoa)
 );
-
-
 
 
 -- TABELAS TRIGGERS
