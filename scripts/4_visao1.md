@@ -1,7 +1,8 @@
-# Visão 1
+# Visão `detalheReservaCliente`
 
 ## Explicação da visão
 
-Edite o conteúdo apresentando:
-- qual é o objetivo da visão criada
-- quais operações da álgebra relacional foram usadas
+- Tem o objetivo de pegar os dados do cliente e sua reserva
+- Operações usadas:
+  - Junção (JOIN): Para combinar dados das tabelas cliente, pessoa, telefone_pessoa, passaporte e Reserva.
+  - Projeção (PROJECTION): Para selecionar apenas os campos desejados no resultado (os atributos do SELECT).

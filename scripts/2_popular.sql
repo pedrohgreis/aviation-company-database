@@ -4,29 +4,26 @@ USE flyBase;
 INSERT INTO Aviao (modelo, fabricante, data_aquisicao) VALUES
 ('Embraer E195-E2', 'Embraer', '2021-03-10'),
 ('Boeing 787-9 Dreamliner', 'Boeing', '2019-11-05'),
-('Airbus A350-900', 'Airbus', '2022-01-20'),
 ('Bombardier CRJ900', 'Bombardier', '2017-07-30'),
 ('ATR 72-600', 'ATR', '2016-04-12'),
-('Boeing 777-300ER', 'Boeing', '2015-02-25'),
 ('Airbus A330-300', 'Airbus', '2014-08-18'),
 ('Embraer Phenom 300', 'Embraer', '2023-05-01'),
-('Cessna Citation Longitude', 'Cessna', '2022-10-11'),
 ('Airbus A220-300', 'Airbus', '2020-12-07');
 
--- Adicionando Cidades (10 registros) Bem latinos <3
 INSERT INTO Cidade (nome, pais) VALUES
-('Maceió', 'Brasil'),
+
+
 ('Santa Catarina', 'Brasil'),
 ('São Paulo', 'Brasil'),
 ('Campo Grande', 'Brasil'),
 ('Salvador', 'Brasil'),
-('Fernando de Noronha', 'Brasil'),
+
 ('Buenos Aires', 'Argentina'),
 ('Cancún', 'México'),
 ('San Pedro de Atacama', 'Chile'),
 ('Machu Picchu', 'Peru');
 
--- Populando tabela cargo (10 registros)
+
 
 INSERT INTO cargo (nomeCargo, salario) VALUES
 ('Gerente', 8000.00),

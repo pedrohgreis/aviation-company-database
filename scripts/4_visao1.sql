@@ -1,6 +1,27 @@
-/* Coloque o código da consulta 1 aqui */
+USE flyBase;
 
-CREATE VIEW exemplo
-AS SELECT * FROM apagar;
+CREATE VIEW detalheReservaCliente
+AS SELECT 
+    p.primeiro_nome,
+    p.sobrenome,
+    p.DataNasc,
+    c.email,
+    c.plano,
+    cel.numero_telefone,
+    pass.numPassaporte,
+    pass.paisEmissor,
+    pass.dataEmissao,
+    pass.dataExpiracao,
+    r.numReserva,
+    r.dataReserva,
+    r.poltrona
 
-SELECT * FROM EXEMPLO;
+FROM cliente c 
+INNER JOIN pessoa p ON c.idPessoa = p.id
+INNER JOIN telefone_pessoa cel ON c.idPessoa = cel.idPessoa
+INNER JOIN passaporte pass ON c.idPessoa = pass.idCliente
+INNER JOIN Reserva r ON c.idPessoa = id_cliente;
+
+
+
+
