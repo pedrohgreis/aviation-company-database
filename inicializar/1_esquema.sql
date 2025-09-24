@@ -40,6 +40,8 @@ CREATE TABLE cargo(
     salario DECIMAL(10,2)
 );
 
+
+
 CREATE TABLE funcionario(
     idPessoa INT PRIMARY KEY,
     idCargo INT,
@@ -49,6 +51,16 @@ CREATE TABLE funcionario(
 
     FOREIGN KEY (idCargo) REFERENCES cargo(id),
     FOREIGN KEY (idPessoa) REFERENCES pessoa(id)
+);
+
+CREATE TABLE EscalaTrabalho(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idFuncionario INT,
+    dataTrabalho INT,
+    horasTrabalho DECIMAL(1,10),
+    escalado BOOLEAN DEFAULT 1,
+
+    FOREIGN KEY (idFuncionario) REFERENCES funcionario(idPessoa)
 );
 
 
@@ -64,6 +76,9 @@ CREATE TABLE Cidade (
     nome VARCHAR(100),
     pais VARCHAR(100)
 );
+
+
+-- !toDo: Implementar trigger no status (histórico de aviões que já decolaram)
 
 CREATE TABLE Status_voo (
     id_status INT AUTO_INCREMENT PRIMARY KEY,
@@ -86,6 +101,7 @@ CREATE TABLE Voo(
     FOREIGN KEY (id_status_voo) REFERENCES Status_voo(id_status)
 );
 
+-- !toDo: Controle poltronas
 
 CREATE TABLE Reserva(
     idVoo INT,
@@ -109,5 +125,30 @@ CREATE TABLE Funcionarios_voo(
     FOREIGN KEY (id_funcionario) REFERENCES funcionario(idPessoa)
 );
 
+
+
+
+-- TABELAS TRIGGERS
+
+CREATE TABLE funcionariosDemitidos(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_pessoa INT,
+    id_cargo INT,
+    dataIngres DATE NOT NULL,
+    dataDesligamento DATE,
+    atividade VARCHAR(15),
+
+    FOREIGN KEY (id_cargo) REFERENCES cargo(id),
+    FOREIGN KEY (id_pessoa) REFERENCES funcionario(idPessoa)
+);
+
+
+CREATE TABLE funcionariosNaoEscalados(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idDemitidos INT,
+    dataDesligamento DATE,
+
+    FOREIGN KEY (idDemitidos) REFERENCES funcionariosDemitidos(id)
+);
 
 
