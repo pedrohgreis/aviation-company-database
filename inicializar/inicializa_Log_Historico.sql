@@ -21,9 +21,14 @@ CREATE TABLE funcionariosNaoEscalados(
 -- Tabela para registrar mudanças de status de um voo
 CREATE TABLE Log_Status_Voo (
     id_log INT AUTO_INCREMENT PRIMARY KEY,
-    id_voo INT,
-    status_antigo VARCHAR(30),
-    status_novo VARCHAR(30),
+    id_voo INT NOT NULL,
+
+    id_status_antigo INT,
+    id_status_novo INT,
     data_modificacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_voo) REFERENCES Voo(id_voo)
+    
+
+    FOREIGN KEY (id_voo) REFERENCES Voo(id_voo),
+    FOREIGN KEY (id_status_antigo) REFERENCES Status_voo(id_status),
+    FOREIGN KEY (id_status_novo) REFERENCES Status_voo(id_status)
 );
