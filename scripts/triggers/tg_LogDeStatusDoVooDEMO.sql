@@ -1,4 +1,3 @@
--- Usando o banco de dados do projeto
 USE flyBase;
 
 -- ===================================================================
