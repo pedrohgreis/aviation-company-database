@@ -8,9 +8,9 @@ FOR EACH ROW
 BEGIN
     IF NEW.atividade = "Desligado" THEN 
         INSERT INTO funcionariosDemitidos(id_pessoa, id_cargo, dataIngres, dataDesligamento, atividade)
-        VALUES (NEW.idPessoa, NEW.idCargoNEW.dataIngres, NEW.dataDesligamento, NEW.atividade)
+        VALUES (NEW.idPessoa, NEW.idCargo, NEW.dataIngres, NEW.dataDesligamento, NEW.atividade);
     END IF;
 END;
 //
 
-DELIMITER ; 
+DELIMITER ;

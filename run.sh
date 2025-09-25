@@ -16,7 +16,7 @@ echo "1.Executando script de criação de tabelas (inicializa_Tables.sql)..."
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" <inicializar/inicializa_Tables.sql
 
 echo "2. Executando script de inicialização do log histórico (inicializa_Log_Historico.sql)..."
-docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase < inicializar/inicializa_Log_Historico.sql
+docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <inicializar/inicializa_Log_Historico.sql
 
 echo "3.Executando scripts de Triggers..."
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/triggers/tg_LogDeStatusDoVoo.sql
@@ -24,7 +24,7 @@ docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/triggers/tr_funcionariosDemitidos.sql
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/triggers/tr_naoEscalados.sql
 
-echo "4.Executando scripts de Views..."docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VM_detalheReservaCliente.sql
+echo "4.Executando scripts de Views..."
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_detalheReservaCliente.sql
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_historicoPassageiro.sql
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_Horario_Voos_Detalhado.sql
