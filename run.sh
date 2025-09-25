@@ -28,11 +28,10 @@ docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/
 docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/triggers/tr_naoEscalados.sql
 
 echo "4.Executando scripts de Views..."
-docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VM_detalheReservaCliente.sql
-docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VM_historicoPassageiro.sql
-docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VM_Horario_Voos_Detalhado.sql
-docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VM_PassageirosdoVoo.sql
-docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VM_voosComAtraso.sql
+docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_detalheReservaCliente.sql
+docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_historicoPassageiro.sql
+docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_Horario_Voos_Detalhado.sql
+docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_PassageirosdoVoo.sql
+docker exec -i "$CONTAINER_NAME" mysql -u root -p"$MYSQL_PASS" flyBase <scripts/views/VW_voosComAtraso.sql
 
 echo "✅ Pronto! O banco de dados foi configurado e populado com sucesso."
-
